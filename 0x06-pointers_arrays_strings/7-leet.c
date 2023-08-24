@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * leet - Converts characters 
  * @s: String to convert 
