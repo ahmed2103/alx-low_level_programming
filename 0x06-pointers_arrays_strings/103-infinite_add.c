@@ -24,9 +24,9 @@ int _strlen(char *s)
 char *rev_string(char *s)
 {
     int length, i;
-    
-    length = _strlen(s);
     char temp;
+
+    length = _strlen(s);
 
     for (i = 0; i < length / 2; i++)
     {
@@ -36,6 +36,7 @@ char *rev_string(char *s)
     }
     return s;
 }
+
 
 /**
  * infinite_add - Adds arbitrarily long strings of digits
@@ -66,4 +67,3 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     r[i] = '\0';
     return rev_string(r);
 }
-
