@@ -8,30 +8,23 @@
 */
 
 char *leet(char *s)
-{	
-	char sl[] = "aeotl";
-	char ul[] = "AEOTL";
- 	char n[] = "43071";
+{
+    int i, c = 0;
+    const int sl[] = {97, 101, 111, 116, 108};
+    const int ul[] = {65, 69, 79, 84, 76};
+    const int n[] = {52, 51, 48, 55, 49};
 
-	int i;
-	char *p = s;
-
-	while (*p != '\0')
-	{
-	char c;
-
-	c = (*p >= 'A' && *p <= 'Z') ? (*p + ('a' - 'A')) : *p;
-			for (i = 0; i < 5; i++)
-			{
-				if (c == sl[i] || c == ul[i])
-				{
-					*p = n[i];
-					break;
-				}
-		}
-
-	p++;
-	}
-	return (s);
+    while (s[c] != '\0')
+    {
+        for (i = 0; i < 5; i++)
+        {
+            if (s[c] == sl[i] || s[c] == ul[i])
+            {
+                s[c] = n[i];
+                break;
+            }
+        }
+        ++c;
+    }
+    return s;
 }
-
