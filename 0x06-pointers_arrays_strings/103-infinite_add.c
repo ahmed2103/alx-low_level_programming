@@ -53,17 +53,17 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r) {
     while (l1 >= 0 || l2 >= 0 || c) {
         if (i >= size_r) {
             return 0;
-        }
-        a = (l1 >= 0) ? n1[l1] - '0' : 0;
-        b = (l2 >= 0) ? n2[l2] - '0' : 0;
-        a = a + b + c;
-        c = a / 10;
-        a %= 10;
-        r[i] = a + '0';
-        l1--;
-        l2--;
-        i++;
-    }
-    r[i] = '\0';
-    return rev_string(r);
+        a = 0;
+		b = 0;
+		if (l1 >= 0)
+			a = n1[l1] - '0';
+		if (l2 >= 0)
+			b = n2[l2] - '0';
+		a = a + b + c;
+		c = a / 10;
+		a %= 10;
+		r[i] = a + '0';
+	}
+	r[i] = '\0';
+	return (rev_string(r));
 }
