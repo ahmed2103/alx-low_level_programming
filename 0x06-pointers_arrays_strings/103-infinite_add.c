@@ -6,12 +6,11 @@
  *
  * Return: Integer length of the string
  */
-int _strlen(char *s)
-{
+int _strlen(char *s) {
     int i = 0;
-
-    while (*s++)
+    while (*s++) {
         i++;
+    }
     return i;
 }
 
@@ -21,20 +20,16 @@ int _strlen(char *s)
  *
  * Return: Pointer to the reversed string
  */
-char *rev_string(char *s)
-{
-    int length = _strlen(s);
-    int i;
-    char temp;
-
-    for (i = 0; i < length / 2; i++)
-    {
-        temp = s[length - i - 1];
-        s[length - i - 1] = s[i];
-        s[i] = temp;
+char *rev_string(char *s) {
+    int l = _strlen(s);
+    for (int i = 0; i < l / 2; i++) {
+        char t = s[l - i - 1];
+        s[l - i - 1] = s[i];
+        s[i] = t;
     }
     return s;
 }
+
 
 /**
  * infinite_add - Adds arbitrarily long strings of digits
@@ -45,27 +40,26 @@ char *rev_string(char *s)
  *
  * Return: Pointer to the result buffer
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
-{
-    int len1 = _strlen(n1);
-    int len2 = _strlen(n2);
+char *infinite_add(char *n1, char *n2, char *r, int size_r) {
+    int l1 = _strlen(n1) - 1;
+    int l2 = _strlen(n2) - 1;
     int i = 0;
-    int carry = 0;
-    int a, b, sum;
+    int c = 0;
 
-    for (--len1, --len2; len1 >= 0 || len2 >= 0 || carry; --len1, --len2, ++i)
-    {
-        if (i >= size_r)
-            return 0;
-
-        a = (len1 >= 0) ? n1[len1] - '0' : 0;
-        b = (len2 >= 0) ? n2[len2] - '0' : 0;
-
-        sum = a + b + carry;
-        carry = sum / 10;
-        r[i] = (sum % 10) + '0';
+    while (l1 >= 0 || l2 >= 0 || c) {
+        if (i >= size_r) {
+            return NULL;
+        }
+        int a = (l1 >= 0) ? n1[l1] - '0' : 0;
+        int b = (l2 >= 0) ? n2[l2] - '0' : 0;
+        a = a + b + c;
+        c = a / 10;
+        a %= 10;
+        r[i] = a + '0';
+        l1--;
+        l2--;
+        i++;
     }
-
     r[i] = '\0';
     return rev_string(r);
 }
