@@ -8,7 +8,11 @@
 */
 
 char *leet(char *s)
-{
+{	
+	char sl[] = "aeotl";
+	char ul[] = "AEOTL";
+ 	char n[] = "43071";
+
 	int i;
 	char *p = s;
 
