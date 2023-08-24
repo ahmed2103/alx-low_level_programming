@@ -1,78 +1,68 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the length of a string
- * @s: The string whose length to check
+ * _strlen - returns the length of a string
+ * @s: the string whose length to check
  *
- * Return: Integer length of the string
+ * Return: integer length of string
  */
-int str_length(char *str) {
-    int len = 0;
-    while (*str != '\0') {
-        len++;
-        str++;
-    }
-    return len;
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (*s++)
+		i++;
+	return (i);
 }
 
 /**
- * rev_string - Reverses a string
- * @s: The string to reverse
+ * rev_string - reverses a string
+ * @s: the string to reverse
  *
- * Return: Pointer to the reversed string
+ * Return: void
  */
-char *reverse_str(char *str) {
-    int length = str_length(str);
-    int i;
-    char temp;
+char *rev_string(char *s)
+{
+	int l = _strlen(s), i = 0;
+	char t;
 
-    for (i = 0; i < length / 2; i++) {
-        temp = str[length - i - 1];
-        str[length - i - 1] = str[i];
-        str[i] = temp;
-    }
-    return str;
+	for (i = 0; i < l / 2; i++)
+	{
+		t = s[l - i - 1];
+		s[l - i - 1] = s[i];
+		s[i] = t;
+	}
+	return (s);
 }
-}
-
 
 /**
- * infinite_add - Adds arbitrarily long strings of digits
- * @n1: The first digit string
- * @n2: The second digit string
- * @r: The result buffer
- * @size_r: The size of the result buffer
+ * infinite_add - adds arbitrarily long string of digits
+ * @n1: the first digit string
+ * @n2: the second digit string
+ * @r: the result buffer
+ * @size_r: the size of result buffer
  *
- * Return: Pointer to the result buffer
+ * Return: char pointer to buffer
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r) {
-    int length1; 
-    int length1;
-    int i = 0;
-    int carry = 0;
-    length1= str_length(n1) - 1;
-    length2= str_length(n2) - 1;
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+	int l1 = _strlen(n1), l2 = _strlen(n2), i = 0, a, b, c = 0;
 
-    while (length1 >= 0 || length2 >= 0 || carry) {
-        if (i >= size_r - 1) {
-            return NULL;
-        }
-        int digit1;
-        int digit2;
-        
-            digit1 = (length1 >= 0) ? (n1[length1] - '0') : 0;
-            digit2 = (length2 >= 0) ? (n2[length2] - '0') : 0;
-
-        int sum;
-            sum= digit1 + digit2 + carry;
-        carry = sum / 10;
-        r[i] = (sum % 10) + '0';
-        i++;
-
-        length1--;
-        length2--;
-    }
-
-    r[i] = '\0';
-    return reverse_str(r);
+	for (l1--, l2--, size_r--; l1 >= 0 || l2 >= 0 || c; l1--, l2--, i++)
+	{
+		if (i >= size_r)
+			return (0);
+		a = 0;
+		b = 0;
+		if (l1 >= 0)
+			a = n1[l1] - '0';
+		if (l2 >= 0)
+			b = n2[l2] - '0';
+		a = a + b + c;
+		c = a / 10;
+		a %= 10;
+		r[i] = a + '0';
+	}
+	r[i] = '\0';
+	return (rev_string(r));
 }
