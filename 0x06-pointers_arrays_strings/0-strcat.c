@@ -18,19 +18,16 @@ char *_strcat(char *dest, char *src)
         dest_len++;
     }
 
-    // Calculate length of source string
     while (src[src_len] != '\0')
     {
         src_len++;
     }
 
-    // Append source to destination
     for (int i = 0; i < src_len; i++)
     {
         dest[dest_len + i] = src[i];
     }
     
-    // Null-terminate the concatenated string
     dest[dest_len + src_len] = '\0';
 
     return dest;
