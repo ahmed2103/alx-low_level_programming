@@ -12,7 +12,6 @@ char *_strcat(char *dest, char *src)
     int dest_len = 0;
     int src_len = 0;
 
-    // Calculate length of destination string
     while (dest[dest_len] != '\0')
     {
         dest_len++;
