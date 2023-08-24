@@ -37,14 +37,14 @@ char *reverse_string(char *s)
 
 /**
  * add_infinite_strings - Adds two arbitrarily long strings of digits.
- * @num1: The first digit string.
- * @num2: The second digit string.
+ * @n1: The first digit string.
+ * @n1: The second digit string.
  * @r: The buffer to store the result.
  * @r: The size of the result buffer.
  *
  * Return: A pointer to the result buffer.
  */
-char *add_infinite_strings(char *n1, char *n2, char *r, int size_r)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
     int len1 = custom_strlen(n1), len2 = custom_strlen(n2), i = 0, digit1, digit2, carry = 0;
 
