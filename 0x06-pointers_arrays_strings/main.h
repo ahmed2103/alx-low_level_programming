@@ -29,6 +29,6 @@ void print_buffer(char *b, int size);
 
 int custom_strlen(char *s);
 
-char *reverse_string(char *s)
+char *reverse_string(char *s);
 
 #endif
