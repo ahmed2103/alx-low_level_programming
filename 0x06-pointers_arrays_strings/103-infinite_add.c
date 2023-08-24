@@ -1,85 +1,48 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>  /* For isdigit */
 
-/**
- * custom_strlen - Computes the length of a string.
- * @s: The input string.
- *
- * Return: The length of the string.
- */
-int custom_strlen(char *s)
-{
-	int count = 0;
-
-	while (*s++)
-		count++;
-	return (count);
-}
-
-/**
- * reverse_string - Reverses a string in place.
- * @s: The string to be reversed.
- *
- * Return: A pointer to the reversed string.
- */
-char *reverse_string(char *s)
-{
-	int length = custom_strlen(s), i = 0;
-	char temp;
-
-	for (i = 0; i < length / 2; i++)
-	{
-		temp = s[length - i - 1];
-		s[length - i - 1] = s[i];
-		s[i] = temp;
-	}
-	return (s);
-}
-
-/**
- * add_infinite_strings - Adds two arbitrarily long strings of digits.
- * @n1: The first digit string.
- * @n1: The second digit string.
- * @r: The buffer to store the result.
- * @r: The size of the result buffer.
- *
- * Return: A pointer to the result buffer.
+/* 
+ * infinite_add - adds two numbers
+ * @n1: number one.
+ * @n2: number two.
+ * @r: buffer that the function will use to store the result.
+ * @size_r: buffer size.
+ * 
+ * Return: the pointer to dest.
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1 = custom_strlen(n1);
-	int len2 = custom_strlen(n2);
-	int i = 0;
-	int digit1, digit2, carry = 0;
+    int len1 = strlen(n1);
+    int len2 = strlen(n2);
+    int carry = 0;
+    int result_index = size_r - 1;
 
-	len1--;
-	len2--;
-	size_r--;
+    /* Check if buffer size is sufficient */
+    if (size_r <= len1 + 1 || size_r <= len2 + 1) {
+        return NULL;  /* Or handle error appropriately */
+    }
 
-	while (len1 >= 0 || len2 >= 0 || carry)
-	{
-		if (i >= size_r)
-		return (0);
+    r[size_r - 1] = '\0';
+    len1--;
+    len2--;
 
-		digit1 = 0;
-		digit2 = 0;
+    while (len1 >= 0 || len2 >= 0 || carry > 0) {
+        int digit1 = (len1 >= 0) ? n1[len1] - '0' : 0;
+        int digit2 = (len2 >= 0) ? n2[len2] - '0' : 0;
 
-		if (len1 >= 0)
-		digit1 = n1[len1] - '0';
+        int sum = digit1 + digit2 + carry;
+        carry = sum / 10;
+        r[result_index] = (sum % 10) + '0';
 
-		if (len2 >= 0)
-		digit2 = n2[len2] - '0';
+        len1--;
+        len2--;
+        result_index--;
+    }
 
-		digit1 = digit1 + digit2 + carry;
-		carry = digit1 / 10;
-		digit1 %= 10;
+    /* Find the starting index for the result */
+    int start_index = (r[result_index] == '0') ? result_index + 1 : result_index;
 
-		r[i] = digit1 + '0';
-
-		len1--;
-		len2--;
-		i++;
-	}
-
-		r[i] = '\0';
-	return (reverse_string(r));
+    return &r[start_index];
 }
