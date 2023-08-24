@@ -22,8 +22,10 @@ int _strlen(char *s) {
  */
 char *rev_string(char *s) {
     int l = _strlen(s);
-    for (int i = 0; i < l / 2; i++) {
-        char t = s[l - i - 1];
+    int;
+    char t ;
+    for (i = 0; i < l / 2; i++) {
+        t = s[l - i - 1];
         s[l - i - 1] = s[i];
         s[i] = t;
     }
@@ -45,13 +47,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r) {
     int l2 = _strlen(n2) - 1;
     int i = 0;
     int c = 0;
+    int a;
+    int b;
 
     while (l1 >= 0 || l2 >= 0 || c) {
         if (i >= size_r) {
-            return NULL;
+            return 0;
         }
-        int a = (l1 >= 0) ? n1[l1] - '0' : 0;
-        int b = (l2 >= 0) ? n2[l2] - '0' : 0;
+        a = (l1 >= 0) ? n1[l1] - '0' : 0;
+        b = (l2 >= 0) ? n2[l2] - '0' : 0;
         a = a + b + c;
         c = a / 10;
         a %= 10;
