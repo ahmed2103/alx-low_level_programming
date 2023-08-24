@@ -1,3 +1,4 @@
+#include "main.h"
 char *leet(char *s) {
     char *original = s;
     char *encoded = malloc(strlen(s) + 1);
