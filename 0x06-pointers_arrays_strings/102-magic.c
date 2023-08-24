@@ -14,7 +14,7 @@ int main(void)
      * - Avoid undefined behavior
      * - Use this single line only
      */
-  *(p + 7) = 98;
+  *(p + 5) = 98;
     printf("a[2] = %d\n", a[2]);
     return 0;
 }
