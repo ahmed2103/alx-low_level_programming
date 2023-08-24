@@ -1,31 +1,33 @@
 #include "main.h"
-char *leet(char *s) {
-    char *original = s;
-    char *encoded = malloc(strlen(s) + 1);
-    
-    if (encoded == NULL) {
-        perror("Memory allocation failed");
-        exit(EXIT_FAILURE);
-    }
+/**
+ * leet - is  function encoding a string into 1337
+ *
+ * @s: string input
+ *
+ * Return: @s
+*/
 
-    char leetMap[128] = {0}; // Initialize with zeros
-    leetMap['a'] = leetMap['A'] = '4';
-    leetMap['e'] = leetMap['E'] = '3';
-    leetMap['o'] = leetMap['O'] = '0';
-    leetMap['t'] = leetMap['T'] = '7';
-    leetMap['l'] = leetMap['L'] = '1';
+char *leet(char *s)
+{
+	int i;
+	char *p = s;
 
-    char *p = encoded;
-    while (*s) {
-        if (leetMap[(int)*s]) {
-            *p = leetMap[(int)*s];
-        } else {
-            *p = *s;
-        }
-        s++;
-        p++;
-    }
-    *p = '\0';
+	while (*p != '\0')
+	{
+	char c;
 
-    return encoded;
+	c = (*p >= 'A' && *p <= 'Z') ? (*p + ('a' - 'A')) : *p;
+			for (i = 0; i < 5; i++)
+			{
+				if (c == sl[i] || c == ul[i])
+				{
+					*p = n[i];
+					break;
+				}
+		}
+
+	p++;
+	}
+	return (s);
 }
+
