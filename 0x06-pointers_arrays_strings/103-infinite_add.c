@@ -23,7 +23,9 @@ int _strlen(char *s)
  */
 char *rev_string(char *s)
 {
-    int length = _strlen(s), i;
+    int length;
+    
+    length = _strlen(s), i;
     char temp;
 
     for (i = 0; i < length / 2; i++)
