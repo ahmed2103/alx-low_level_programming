@@ -8,11 +8,11 @@
  */
 int custom_strlen(char *s)
 {
-    int count = 0;
+	int count = 0;
 
-    while (*s++)
-    count++;
-    return (count);
+	while (*s++)
+		count++;
+	return (count);
 }
 
 /**
@@ -23,16 +23,16 @@ int custom_strlen(char *s)
  */
 char *reverse_string(char *s)
 {
-    int length = custom_strlen(s), i = 0;
-    char temp;
+	int length = custom_strlen(s), i = 0;
+	char temp;
 
-    for (i = 0; i < length / 2; i++)
-    {
-        temp = s[length - i - 1];
-        s[length - i - 1] = s[i];
-        s[i] = temp;
-    }
-    return (s);
+	for (i = 0; i < length / 2; i++)
+	{
+		temp = s[length - i - 1];
+		s[length - i - 1] = s[i];
+		s[i] = temp;
+	}
+	return (s);
 }
 
 /**
@@ -46,23 +46,40 @@ char *reverse_string(char *s)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len1 = custom_strlen(n1), len2 = custom_strlen(n2), i = 0, digit1, digit2, carry = 0;
+	int len1 = custom_strlen(n1);
+	int len2 = custom_strlen(n2);
+	int i = 0;
+	int digit1, digit2, carry = 0;
 
-    for (len1--, len2--, size_r--; len1 >= 0 || len2 >= 0 || carry; len1--, len2--, i++)
-    {
-        if (i >= size_r)
-            return (0);
-        digit1 = 0;
-        digit2 = 0;
-        if (len1 >= 0)
-            digit1 = n1[len1] - '0';
-        if (len2 >= 0)
-            digit2 = n2[len2] - '0';
-        digit1 = digit1 + digit2 + carry;
-        carry = digit1 / 10;
-        digit1 %= 10;
-        r[i] = digit1 + '0';
-    }
-    r[i] = '\0';
-    return (reverse_string(r));
+	len1--;
+	len2--;
+	size_r--;
+
+	while (len1 >= 0 || len2 >= 0 || carry)
+	{
+		if (i >= size_r)
+		return (0);
+
+		digit1 = 0;
+		digit2 = 0;
+
+		if (len1 >= 0)
+		digit1 = n1[len1] - '0';
+
+		if (len2 >= 0)
+		digit2 = n2[len2] - '0';
+
+		digit1 = digit1 + digit2 + carry;
+		carry = digit1 / 10;
+		digit1 %= 10;
+
+		r[i] = digit1 + '0';
+
+		len1--;
+		len2--;
+		i++;
+	}
+
+		r[i] = '\0';
+	return (reverse_string(r));
 }
