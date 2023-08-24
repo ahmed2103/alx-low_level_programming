@@ -23,10 +23,9 @@ int _strlen(char *s)
  */
 char *rev_string(char *s)
 {
-    int length, i;
+    int length = _strlen(s);
+    int i;
     char temp;
-
-    length = _strlen(s);
 
     for (i = 0; i < length / 2; i++)
     {
@@ -36,7 +35,6 @@ char *rev_string(char *s)
     }
     return s;
 }
-
 
 /**
  * infinite_add - Adds arbitrarily long strings of digits
@@ -49,10 +47,13 @@ char *rev_string(char *s)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int a, b, len1, sum; 
-        len1 = _strlen(n1), len2 = _strlen(n2), i = 0, carry = 0;
+    int len1 = _strlen(n1);
+    int len2 = _strlen(n2);
+    int i = 0;
+    int carry = 0;
+    int a, b, sum;
 
-    for (--len1, --len2, --size_r; len1 >= 0 || len2 >= 0 || carry; --len1, --len2, ++i)
+    for (--len1, --len2; len1 >= 0 || len2 >= 0 || carry; --len1, --len2, ++i)
     {
         if (i >= size_r)
             return 0;
