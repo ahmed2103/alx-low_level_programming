@@ -6,21 +6,20 @@
  */
 char *rot13(char *s)
 {
-    char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char rot13_alphabet[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-    int i, j;
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13_alpha[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int i, j;
 
-    for (i = 0; s[i] != '\0'; i++)
-    {
-        for (j = 0; alphabet[j] != '\0'; j++)
-        {
-            if (s[i] == alphabet[j])
-            {
-                s[i] = rot13_alphabet[j];
-                break;
-            }
-        }
-    }
-    return s;
+	for (i = 0; s[i] != '\0'; i++)
+	{
+	for (j = 0; alphabet[j] != '\0'; j++)
+		{
+		if (s[i] == alphabet[j])
+			{
+			s[i] = rot13_alpha[j];
+			break;
+			}
+		}
+	}
+	return (s);
 }
-
