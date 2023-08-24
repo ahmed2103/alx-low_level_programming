@@ -1,26 +1,30 @@
-#include "main.h"
-/**
- * leet - Converts characters 
- * @s: String to convert 
- *
- * Return: Pointer to the new string
- */
-char *leet(char *s)
-{
-    char leet_map[] = "a4A4e3E3o0O0t7T7l1L1";
-    int i, j;
-
-    for (i = 0; s[i] != '\0'; i++)
-    {
-        for (j = 0; leet_map[j] != '\0'; j += 2)
-        {
-            if (s[i] == leet_map[j])
-            {
-                s[i] = leet_map[j + 1];
-                break;
-            }
-        }
+char *leet(char *s) {
+    char *original = s;
+    char *encoded = malloc(strlen(s) + 1);
+    
+    if (encoded == NULL) {
+        perror("Memory allocation failed");
+        exit(EXIT_FAILURE);
     }
-    return s;
-}
 
+    char leetMap[128] = {0}; // Initialize with zeros
+    leetMap['a'] = leetMap['A'] = '4';
+    leetMap['e'] = leetMap['E'] = '3';
+    leetMap['o'] = leetMap['O'] = '0';
+    leetMap['t'] = leetMap['T'] = '7';
+    leetMap['l'] = leetMap['L'] = '1';
+
+    char *p = encoded;
+    while (*s) {
+        if (leetMap[(int)*s]) {
+            *p = leetMap[(int)*s];
+        } else {
+            *p = *s;
+        }
+        s++;
+        p++;
+    }
+    *p = '\0';
+
+    return encoded;
+}
