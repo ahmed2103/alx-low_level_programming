@@ -49,8 +49,8 @@ char *rev_string(char *s)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int len1 = _strlen(n1), len2 = _strlen(n2), i = 0, carry = 0;
-    int a, b, sum; // Declare variables at the beginning
+    int a, b, len1, sum; 
+        len1 = _strlen(n1), len2 = _strlen(n2), i = 0, carry = 0;
 
     for (--len1, --len2, --size_r; len1 >= 0 || len2 >= 0 || carry; --len1, --len2, ++i)
     {
@@ -68,4 +68,3 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     r[i] = '\0';
     return rev_string(r);
 }
-
