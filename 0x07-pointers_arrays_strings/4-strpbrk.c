@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stddef.h>
 
-
 /**
  * _strpbrk - matches any character specified
  * @s: This is the C string.
