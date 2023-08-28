@@ -9,13 +9,22 @@
  **/
 char *_strpbrk(char *s, const char *accept)
 {
+    int hash[256] = {0};
+
+    while (*accept)
+    {
+        hash[(unsigned char)*accept] = 1;
+        accept++;
+    }
+
     while (*s)
     {
-        if (strchr(accept, *s))
+        if (hash[(unsigned char)*s])
         {
             return s;
         }
         s++;
     }
-    return NULL;
+
+    return (NULL);
 }
