@@ -1,17 +1,19 @@
-#include "main.h"
-
 /**
- * _memset - Entry point
- * @s: pointed destination
- * @b: constant byte
- * @n: bytes
- * Return: Always 0 (Success)
+ * _memcpy - Copies n bytes from memory area src to memory area dest.
+ * @dest: Pointer to the destination memory area.
+ * @src: Pointer to the source memory area.
+ * @n: Number of bytes to copy.
+ *
+ * Return: Pointer to the destination memory area.
  */
-char *_memset(char *s, char b, unsigned int n)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+	{
+		dest[i] = src[i];
+	}
+	return (dest);
 }
+
