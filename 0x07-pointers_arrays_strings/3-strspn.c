@@ -1,5 +1,5 @@
 #include "main.h"
-
+incl
 /**
  * _strspn - Gets the length of a prefix substring.
  * @s: The main string to be scanned.
@@ -11,7 +11,7 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	int i, j;
-	unsigned int count = 0; // Use unsigned int for count
+	unsigned int count = 0;
 	char *str1, *str2;
 
 	str1 = s;
