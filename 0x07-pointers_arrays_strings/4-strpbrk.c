@@ -1,30 +1,18 @@
 #include "main.h"
-#include <stddef.h>
-
-/**
- * _strpbrk - finds the first occurrence of any character specified
- * @s: The C string to search.
- * @accept: The characters to search for.
- * Return: A pointer to the first matching character in s, or NULL if not found.
- **/
-char *_strpbrk(char *s, const char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-    int hash[256] = {0};
+    int i, n;
+    int accept_chars[256] = {0};
 
-    while (*accept)
-    {
-        hash[(unsigned char)*accept] = 1;
-        accept++;
+    for (n = 0; accept[n] != '\0'; n++) {
+        accept_chars[(unsigned char)accept[n]] = 1;
     }
 
-    while (*s)
-    {
-        if (hash[(unsigned char)*s])
-        {
-            return s;
+    for (i = 0; s[i] != '\0'; i++) {
+        if (accept_chars[(unsigned char)s[i]]) {
+            return (s + i);
         }
-        s++;
     }
 
-    return (NULL);
+    return NULL;
 }
