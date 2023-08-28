@@ -19,5 +19,5 @@ char *_strpbrk(char *s, const char *accept)
             }
         }
     }
-    return NULL;
+    return (NULL);
 }
