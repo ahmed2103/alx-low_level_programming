@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strpbrk - matches any character specified
@@ -18,5 +19,5 @@ char *_strpbrk(char *s, char *accept)
             }
         }
     }
-    return 1;
+    return (NULL);
 }
