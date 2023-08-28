@@ -8,10 +8,11 @@
  * Return: string s that matches any character specified in accept.
  **/
 char *_strpbrk(char *s, char *accept)
+const char *c
 {
     for (; *s != '\0'; s++)
     {
-        for (const char *c = accept; *c != '\0'; c++)
+        for (c = accept; *c != '\0'; c++)
         {
             if (*s == *c)
             {
