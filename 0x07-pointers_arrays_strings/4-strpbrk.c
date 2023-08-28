@@ -20,4 +20,4 @@ char *_strpbrk(char *s, const char *accept)
         }
     }
     return (NULL);
-}
+} correct this code to work on gnu89 linux
