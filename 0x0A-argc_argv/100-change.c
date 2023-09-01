@@ -1,66 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
-
-int change(int cents);
 
 /**
- * main - Entry Point
- * @argc: argument count
- * @argv: argument vector
+ * main - Entry point
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line argument strings
+ *
  * Return: 0 on success, 1 on error
  */
 int main(int argc, char *argv[])
 {
+    int cents, num_coins, min_coins, i;
+    int coins[] = {25, 10, 5, 2, 1};
+
     if (argc != 2)
     {
-        printf("%s\n", "Error");
+        printf("Error\n");
         return 1;
     }
 
-    int cents = atoi(argv[1]);
-    printf("%d\n", change(cents));
-    return 0;
-}
+    cents = atoi(argv[1]);
 
-/**
- * change - get change
- * @cents: amount of coins from main function
- * Return: change
- */
-int change(int cents)
-{
-    int q = 25, d = 10, n = 5, t = 2, p = 1;
-    int coins = 0; 
-
-    while (cents > 0)
+    if (cents < 0)
     {
-        if (cents >= q)
+        printf("0\n");
+        return 0;
+    }
+
+    num_coins = sizeof(coins) / sizeof(coins[0]);
+    min_coins = 0;
+
+    for (i = 0; i < num_coins; i++)
+    {
+        while (cents >= coins[i])
         {
-            cents -= q;
-            coins++;
-        }
-        else if (cents >= d)
-        {
-            cents -= d;
-            coins++;
-        }
-        else if (cents >= n)
-        {
-            cents -= n;
-            coins++;
-        }
-        else if (cents >= t)
-        {
-            cents -= t;
-            coins++;
-        }
-        else if (cents >= p)
-        {
-            cents -= p;
-            coins++;
+            cents -= coins[i];
+            min_coins++;
         }
     }
-    return coins;
+
+    printf("%d\n", min_coins);
+    return 0;
 }
 
