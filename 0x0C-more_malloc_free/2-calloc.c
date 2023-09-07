@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdio.h>
+#include "main.h"
 
 /**
  * string_nconcat - Concatenate two strings using at most n characters from s2
