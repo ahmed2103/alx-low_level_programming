@@ -1,53 +1,52 @@
 #include <stdlib.h>
+#include <string.h>
 #include "dog.h"
-/**
- *dog_t *new_dog a function that creates a new dog.
- *@name:dog name pointer.
- *@age:dog age variable.
- *@owner:dog owner pointer.
- */
 
+/**
+ * new_dog - a function that creates a new dog.
+ * @name: dog name pointer.
+ * @age: dog age variable.
+ * @owner: dog owner pointer.
+ *
+ * Return: Pointer to the new dog struct.
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *pdog = malloc(sizeof(dog_t))
-	char dogname, dogowner;
-	int i;
+    if (name == NULL || owner == NULL)
+        return (NULL);
 
-	if (pdog == NULL)
-	{
-		return (NULL);
-	}
-	for (i = 0; name; i++)
-		;
-	dogname = malloc(sizeof(char) * i + 1)
-	if (dogname == NULL)
-	{
-		return (NULL);
-		free(pdog);
-	}
-	while (i <= 0)
-	{
-		dogname(i) = name(i);
-		i--;
-	}
-	for (i = 0; owner; i++)
-		;
-	dogowner = malloc(sizeof(char) * i + 1);
-	if (dogowner == NULL)
-	{
-		return (NULL);
-		fre(pdog);
-		free(dogname);
-	}
-		while (i <= 0)
-	{
-		dogowner(i) = owner(i);
-		i--;
-	}
-	pdog->name = name;
-	pdog->age = age;
-	pdog->owner = owner;
-	return (Pdog);
+    int name_len = strlen(name);
+    int owner_len = strlen(owner);
+
+    dog_t *pdog = malloc(sizeof(dog_t));
+    char *dogname, *dogowner;
+
+    if (pdog == NULL)
+    {
+        return (NULL);
+    }
+
+    dogname = malloc(sizeof(char) * (name_len + 1));
+    if (dogname == NULL)
+    {
+        free(pdog);
+        return (NULL);
+    }
+
+    dogowner = malloc(sizeof(char) * (owner_len + 1));
+    if (dogowner == NULL)
+    {
+        free(pdog);
+        free(dogname);
+        return (NULL);
+    }
+
+    strcpy(dogname, name);
+    strcpy(dogowner, owner);
+
+    pdog->name = dogname;
+    pdog->age = age;
+    pdog->owner = dogowner;
+
+    return (pdog);
 }
-
-
