@@ -8,7 +8,8 @@ dog_t *new_dog(char *name, float age, char *owner)
     int owner_len;
     name_len = 1 + strlen(name);
     owner_len = 1 + strlen(owner);
-    char *dogname, *dogowner;
+    char *dogname;
+    char *dogowner;
     dog_t *pdog;
     
     if (name == NULL || owner == NULL)
