@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include "dog.h"
 /**
  *dog_t *new_dog a function that creates a new dog.
  *@name:dog name pointer.
