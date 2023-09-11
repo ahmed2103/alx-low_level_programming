@@ -2,14 +2,6 @@
 #include <string.h>
 #include "dog.h"
 
-/**
- * new_dog - a function that creates a new dog.
- * @name: dog name pointer.
- * @age: dog age variable.
- * @owner: dog owner pointer.
- *
- * Return: Pointer to the new dog struct.
- */
 dog_t *new_dog(char *name, float age, char *owner)
 {
     if (name == NULL || owner == NULL)
@@ -17,6 +9,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 
     int name_len = strlen(name);
     int owner_len = strlen(owner);
+
+    int dogname_size = name_len + 1;
+    int dogowner_size = owner_len + 1;
 
     dog_t *pdog = malloc(sizeof(dog_t));
     char *dogname, *dogowner;
@@ -26,14 +21,14 @@ dog_t *new_dog(char *name, float age, char *owner)
         return (NULL);
     }
 
-    dogname = malloc(sizeof(char) * (name_len + 1));
+    dogname = malloc(sizeof(char) * dogname_size);
     if (dogname == NULL)
     {
         free(pdog);
         return (NULL);
     }
 
-    dogowner = malloc(sizeof(char) * (owner_len + 1));
+    dogowner = malloc(sizeof(char) * dogowner_size);
     if (dogowner == NULL)
     {
         free(pdog);
