@@ -1,3 +1,4 @@
+include <stdlib.h>
 include "dog.h"
 /**
  *print_dog:a function that prints a struct dog
