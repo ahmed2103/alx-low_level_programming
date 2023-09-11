@@ -1,4 +1,4 @@
-#include <stdio.h>  // Include the standard I/O library for printf
+#include <stdio.h>
 #include "dog.h"
 
 /**
