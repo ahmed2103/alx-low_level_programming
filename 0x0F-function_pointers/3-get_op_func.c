@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "3-calc.h"
 /**
  * get_op_func-pointer to a function that calculate mathmatical operation.
  * @s is the operator passed as argument to the program.
