@@ -7,8 +7,8 @@
  */
 void print_all(const char * const format, ...)
 {
-    va_list args
-    unsigned int i;
+    va_list args;
+    int i;
     char *s;
 
 va_start(args, format);
