@@ -34,7 +34,7 @@ va_start(args, format);
 		default:
 			continue;
 		}
-		if (format[i] == 0)
+		if (format[i])
 			printf(", ");
 	}
 	putchar('\n');
