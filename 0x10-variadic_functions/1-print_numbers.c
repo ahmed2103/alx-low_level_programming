@@ -2,9 +2,9 @@
 #include <stdarg.h>
 
 /**
- * print_number - variadic function that prints numbers, followed by a new line.
- * @separator: the string to be printed between numbers.
- * @n: the number of integers passed to the function.
+ * print_numbers - print `n' variable int arguments separated by `separator'
+ * @separator: separator between ints
+ * @n: number of variable arguments
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
