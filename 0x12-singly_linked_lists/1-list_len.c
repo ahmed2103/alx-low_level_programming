@@ -1,3 +1,8 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "lists.h"
+
 /**
  * list_len - count the number of element in any given linked list.
  * @h: pointer to the first node.
@@ -7,10 +12,8 @@
 size_t list_len(const list_t *h)
 {
 	size_t len;
-
 	len = 0;
-	if (!h)
-		return (-1);
+
 	while (h)
 	{
 		++len;
