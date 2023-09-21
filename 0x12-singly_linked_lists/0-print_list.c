@@ -9,7 +9,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t num = 0;
+	size_t size = 0;
 
 	while (h)
 	{
@@ -20,5 +20,5 @@ size_t print_list(const list_t *h)
 		h = h->next;
 		num++;
 	}
-	return (num);
+	return (size);
 }
