@@ -1,3 +1,7 @@
+#include <stdlib.h>
+#include <string.h>
+#include "lists.h"
+
 /**
  * add node - adds a new node at the beginning of a list_t list.
  * @heed: double pointer for the new node.
@@ -7,11 +11,8 @@
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new;
+	list_t *new = malloc(sizeof(list_t);
 
-	if (!head)
-		return (-1);
-	new = malloc(sizeof(list_t);
 	if (!new)
 		return(Null);
 	new->next = *head;
