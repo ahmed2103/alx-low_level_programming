@@ -31,7 +31,8 @@ size_t print_listint_safe(const listint_t *head)
 			}
 			temp2 = temp2->next;
 			++j;
-	}
+		}
+	}	
 	return(i);
 }
 
