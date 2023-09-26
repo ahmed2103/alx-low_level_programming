@@ -27,11 +27,11 @@ size_t print_listint_safe(const listint_t *head)
 			if (temp2 == temp)
 			{
 				printf("-> [%p] %d", (listint_t *)temp, temp->n);
-				return(counter);
+				return(i);
 			}
 			temp2 = temp2->next;
 			++j;
 	}
-	return(counter);
+	return(i);
 }
 
