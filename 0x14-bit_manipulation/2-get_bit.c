@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * get_bit - gives bit value at given index starts from `0'
  * @n: decimal number that has the bit.
@@ -7,7 +8,7 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index > 64)
+	if (index >= sizeof(n))
 		return (-1);
 	return((n >> index) & 1)
 }
