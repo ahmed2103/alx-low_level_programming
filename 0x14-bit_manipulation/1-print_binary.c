@@ -11,7 +11,7 @@ void print_binary(unsigned long int n)
 
 	for (shifts = 0; temp >>= 1;++shifts)
 		;
-	for (;shifts >= 0; --shift)
+	for (;shifts >= 0; --shifts)
 	{
 		if ((n >> shifts) & 1)
 			_putchar('1');
