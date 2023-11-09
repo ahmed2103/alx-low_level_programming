@@ -10,12 +10,12 @@
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	if (*head == NULL)
-		return -1;
+		return (-1);
 
 	if (index == 0)
-		return delete_first_node(head);
+		return (delete_first_node(head));
 
-	return delete_node_at_index(head, index);
+	return (delete_node_at_index(head, index));
 }
 
 /**
@@ -39,7 +39,7 @@ int delete_first_node(dlistint_t **head)
 	}
 
 	free(tmp);
-	return 1;
+	return (1);
 }
 
 /**
@@ -63,10 +63,10 @@ int delete_node_at_index(dlistint_t **head, unsigned int index)
 	if (dex == index)
 	{
 		delete_node(tmp);
-		return 1;
+		return (1);
 	}
 
-	return -1;
+	return (-1);
 }
 
 /**
