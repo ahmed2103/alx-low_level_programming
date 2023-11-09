@@ -9,7 +9,8 @@
  *
  * Return: 0 on success, 1 otherwise.
  */
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	size_t i, j;
 	int rnd = 0;
 	char *h, *uname, pw[7], max_char;
