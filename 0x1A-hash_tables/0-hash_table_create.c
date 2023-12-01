@@ -29,6 +29,7 @@
 	}
 	for (i = 0; i < size; ++i)
 		new->array[i] = NULL;
+	new->size =size
 	return (new);
 
 }
