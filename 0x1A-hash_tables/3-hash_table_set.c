@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key || !ht->size)
 		return (0);
 	idx = key_index((const unsigned char *)key, ht->size);
-	checker = ht->array[position]; /*head of the chain*/
+	checker = ht->array[idx]; /*head of the chain*/
 	while (checker) /* traverse to check previous key*/
 	{
 		if (strcmp(checker->key, key) == 0)
