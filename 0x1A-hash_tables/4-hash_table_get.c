@@ -8,12 +8,12 @@
  * Returns the value associated with the element.
  * OR NULL if key couldn’t be found.
  */
-char *hash_table_get(const hash_table_t *ht, const char *key);
+char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int idx;
 	hash_node_t *getter;
 	
-	if (!key || !ht->size || !ht)
+	if (!key || !ht || !ht->size)
 		return (NULL);
 
 	idx = key_index((const unsigned char *)key, ht->size);
@@ -21,7 +21,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 	
 	while (getter)
 	{
-		if (getter->key == key)
+		if (strcmp(getter->key, key) == 0)
 			return(getter->value);
 		getter = getter->next;
 	}
