@@ -1,14 +1,15 @@
 #include "search_algos.h"
 
 /**
- * binary_search - searching for value using binary search algoritm.
- * @array: the array to search in.
- * @size: the size of the array.
- * @value: the target to search for.
- * @return: the index of the target if found OR
- * -1 if array is null or target not found.
+ * binary_search - Searches for a value using the binary search algorithm.
+ * @array: Pointer to the first element of the array to search in.
+ * @size: The number of elements in the array.
+ * @value: The value to search for.
+ *
+ * Return: If the value is found, the function returns the index of the value
+ * in the array. If the value is not present or if the array is NULL, it
+ * returns -1.
  */
-
 int binary_search(int *array, size_t size, int value)
 {
 	size_t left, right, mid, i;
