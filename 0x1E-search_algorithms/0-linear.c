@@ -1,11 +1,13 @@
 #include "search_algos.h"
+
 /**
- * linear_search - finds element of an array and retrieve its index.
- * @array: the array to search in.
- * @size: the size of the array.
- * @value: the value to be searched for.
- * @return: the index if the element was found OR
- * -1 if the array is NULL or element not found.
+ * linear_search - Finds an element in an array and retrieves its index.
+ * @array: The array to search in.
+ * @size: The size of the array.
+ * @value: The value to be searched for.
+ *
+ * Return: The index if the element was found, or -1 if the array is NULL
+ * or the element is not found.
  */
 int linear_search(int *array, size_t size, int value)
 {
